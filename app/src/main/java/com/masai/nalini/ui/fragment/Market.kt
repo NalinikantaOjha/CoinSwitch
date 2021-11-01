@@ -47,6 +47,7 @@ class Market : Fragment() {
             }else if (position==3){
                 tab.text="Top Losers"
             }
+            //
         }.attach()
     }
 }
