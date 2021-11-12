@@ -1,5 +1,6 @@
 package com.masai.nalini.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
 import com.masai.nalini.R
+import com.masai.nalini.ui.activity.SearchActivity2
 import com.masai.nalini.ui.adapter.ViewPagerAdapter
 import kotlinx.android.synthetic.main.fragment_market.*
 
@@ -33,7 +35,9 @@ class Market : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+imSearch.setOnClickListener {
+    startActivity(Intent(this.context,SearchActivity2::class.java))
+}
 
        var ViewPagerAdapter= fragmentManager?.let { ViewPagerAdapter(it,lifecycle) }
         viewPager.setAdapter(ViewPagerAdapter)

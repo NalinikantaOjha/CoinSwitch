@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.masai.nalini.R
 import com.masai.nalini.remote.model.datamodel.Data
 import com.masai.nalini.ui.adapter.listner.OnClickAddToWatchList
 import kotlinx.android.synthetic.main.item_layout.view.*
@@ -17,6 +18,9 @@ class DataViewHolder(itemView:View,val onClickAddToWatchList: OnClickAddToWatchL
         itemView.apply {
             cardView.setOnClickListener {
                 onClickAddToWatchList.AddToWatchList(dataDTO)
+            }
+            if(dataDTO.name.equals("Bitcoin")){
+                imageurl.setImageResource(R.drawable.bitcoin)
             }
             Log.d("recycle","nalini")
             tvName.setText(dataDTO.name.toString())

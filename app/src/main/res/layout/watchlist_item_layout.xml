@@ -15,14 +15,14 @@
 
         <LinearLayout
 
-            android:layout_weight="0.7"
+            android:layout_weight="0.8"
             android:layout_width="0dp"
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_margin="20dp"
                 android:layout_width="30dp"
                 android:id="@+id/imageurl"
-                android:src="@drawable/linkden"
+                android:src="@drawable/cryptoc"
                 android:layout_height="wrap_content">
 
             </ImageView>
@@ -30,7 +30,7 @@
         <LinearLayout
             android:gravity="center"
             android:layout_width="0dp"
-            android:layout_weight="1.2"
+            android:layout_weight="1"
             android:orientation="vertical"
             android:layout_height="wrap_content">
             <TextView
