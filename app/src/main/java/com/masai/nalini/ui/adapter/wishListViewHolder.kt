@@ -5,10 +5,11 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.masai.nalini.local.WishlistEntity
-import kotlinx.android.synthetic.main.item_layout.view.*
+import com.masai.nalini.ui.adapter.listner.OnClickDeleteWishList
+import kotlinx.android.synthetic.main.watchlist_item_layout.view.*
 import java.text.DecimalFormat
 
-class wishListViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
+class wishListViewHolder(itemView:View,val onClickDeleteWishList: OnClickDeleteWishList): RecyclerView.ViewHolder(itemView) {
     val dec = DecimalFormat("#.##")
     fun setData(wishlistEntity: WishlistEntity){
         itemView.apply {
@@ -28,7 +29,10 @@ class wishListViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
             val number = java.lang.Double.valueOf(wishlistEntity.price)
             val credits = dec.format(number)
             tvPrice.setText("$ "+credits)
-
+ivDelete.setOnClickListener {
+    onClickDeleteWishList.OnDelteWatch(wishlistEntity)
+}
         }
+
     }
 }
