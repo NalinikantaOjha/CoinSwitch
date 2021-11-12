@@ -21,6 +21,12 @@ class DataViewHolder(itemView:View,val onClickAddToWatchList: OnClickAddToWatchL
             }
             if(dataDTO.name.equals("Bitcoin")){
                 imageurl.setImageResource(R.drawable.bitcoin)
+            }else if (dataDTO.name.equals("Ethereum")){
+                imageurl.setImageResource(R.drawable.therum)
+            }else if (dataDTO.name.equals("Tether")){
+                imageurl.setImageResource(R.drawable.thther)
+            }else if (dataDTO.name.equals("Solana")){
+                imageurl.setImageResource(R.drawable.solana)
             }
             Log.d("recycle","nalini")
             tvName.setText(dataDTO.name.toString())
