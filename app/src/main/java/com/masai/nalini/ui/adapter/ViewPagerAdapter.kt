@@ -10,7 +10,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle) : 
 
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0 -> return All()
+            0 -> return AAllFragment()
             1 -> return Watchlist()
             2 -> return TopGainers()
             3 -> return TopLosers()
