@@ -76,6 +76,6 @@ class TopGainers : Fragment(),OnClickAddToWatchList {
     }
 
     override fun AddToWatchList(data: Data) {
-        TODO("Not yet implemented")
+
     }
 }
