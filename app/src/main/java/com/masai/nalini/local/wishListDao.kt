@@ -7,6 +7,7 @@ import androidx.room.*
 interface wishListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun register(wishlistEntity: WishlistEntity)
+
     @Query("select * from wishlistTable")
     fun getWishList():LiveData<List<WishlistEntity>>
     @Delete
