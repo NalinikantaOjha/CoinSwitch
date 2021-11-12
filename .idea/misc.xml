@@ -4,9 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/activity_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
+        <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/fragment_a_all.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/fragment_all.xml" value="0.1" />
         <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/fragment_market.xml" value="0.1" />
         <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/fragment_portfolio.xml" value="0.17119565217391305" />
         <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/fragment_rewards.xml" value="0.1" />
+        <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/fragment_top_gainers.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/fragment_top_losers.xml" value="0.1" />
+        <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/fragment_watchlist.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/layout/item_layout.xml" value="0.21331521739130435" />
         <entry key="..\:/Users/nalin/AndroidStudioProjects/CoinSwitch/app/src/main/res/menu/navigation_manu.xml" value="0.1" />
       </map>
     </option>

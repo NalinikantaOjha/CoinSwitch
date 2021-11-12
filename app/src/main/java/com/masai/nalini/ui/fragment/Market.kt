@@ -39,7 +39,7 @@ class Market : Fragment() {
         viewPager.setAdapter(ViewPagerAdapter)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             if (position == 0) {
-                tab.text = "   All               "
+                tab.text = "       All             "
             } else if (position == 1) {
                 tab.text = "WatchList"
             } else if (position == 2) {

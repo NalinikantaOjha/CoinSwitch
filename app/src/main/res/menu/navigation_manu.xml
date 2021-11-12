@@ -14,6 +14,7 @@
 
         android:id="@+id/menuRewards"
         android:icon="@drawable/ic_baseline_card_giftcard_24"
+        android:iconTint="@color/black"
         android:title="@string/todo">
     </item>
     <item
