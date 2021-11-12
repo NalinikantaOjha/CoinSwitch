@@ -36,7 +36,10 @@ class DataRepository (val wishListDao: wishListDao,private val userApi:ApiServic
         return wishListDao.getWishList()
     }
     fun deleteWishList(wishlistEntity: WishlistEntity){
-        wishListDao.wishlistDelete(wishlistEntity)
+        CoroutineScope(Dispatchers.IO).launch {
+            wishListDao.wishlistDelete(wishlistEntity)
+        }
+
 
     }
 

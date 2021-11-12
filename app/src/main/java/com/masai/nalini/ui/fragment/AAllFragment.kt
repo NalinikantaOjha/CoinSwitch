@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.masai.nalini.R
 import com.masai.nalini.local.WishListData
+import com.masai.nalini.local.WishlistEntity
 import com.masai.nalini.local.wishListDao
 import com.masai.nalini.remote.data.ApiCall
 import com.masai.nalini.remote.data.ApiService
@@ -111,7 +112,8 @@ class AAllFragment : Fragment(),OnClickAddToWatchList {
     }
 
     override fun AddToWatchList(data: Data) {
-
+val wishlistEntity=WishlistEntity(data.name,data.id,data.symbol,data.quote.uSD.price,data.quote.uSD.percentChange24h)
+        viewModel2.CreateWishList(wishlistEntity)
     }
 }
 

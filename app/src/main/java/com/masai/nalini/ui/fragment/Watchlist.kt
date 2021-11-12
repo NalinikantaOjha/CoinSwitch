@@ -22,13 +22,14 @@ import com.masai.nalini.remote.model.datamodel.Data
 import com.masai.nalini.repository.DataRepository
 import com.masai.nalini.ui.adapter.Adapter
 import com.masai.nalini.ui.adapter.WishListAdapter
+import com.masai.nalini.ui.adapter.listner.OnClickDeleteWishList
 import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_top_losers.*
 import kotlinx.android.synthetic.main.fragment_watchlist.*
 
 
-class Watchlist : Fragment() {
+class Watchlist : Fragment(),OnClickDeleteWishList {
     lateinit var mainViewModel: MainViewModel
     lateinit var repository: DataRepository
     lateinit var wishListDao: wishListDao
@@ -57,7 +58,7 @@ class Watchlist : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val apiCll= Netwark.getInstance().create(ApiCall::class.java)
 
-        adapter2 = WishListAdapter(List,context as Activity)
+        adapter2 = WishListAdapter(List,this,context as Activity)
         recycleWishlist.adapter = adapter2
 
         recycleWishlist.layoutManager = LinearLayoutManager(requireContext())
@@ -78,10 +79,13 @@ List.clear()
 
     }
     fun setRecycle(){
-        adapter2 = WishListAdapter(List,context as Activity)
+        adapter2 = WishListAdapter(List,this,context as Activity)
         recycleWishlist.adapter = adapter2
         recycleWishlist.layoutManager = LinearLayoutManager(requireContext())
     }
 
-
+    override fun OnDelteWatch(wishlistEntity: WishlistEntity){
+        //val wishlistEntity=WishlistEntity(data.name,data.id,data.symbol,data.quote.uSD.price,data.quote.uSD.percentChange24h)
+        mainViewModel.wishListDelete(wishlistEntity)
+    }
     }

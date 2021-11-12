@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.masai.nalini.R
 import com.masai.nalini.local.WishListData
+import com.masai.nalini.local.WishlistEntity
 import com.masai.nalini.local.wishListDao
 import com.masai.nalini.remote.data.ApiService
 import com.masai.nalini.remote.data.Netwark
@@ -76,6 +77,7 @@ class TopGainers : Fragment(),OnClickAddToWatchList {
     }
 
     override fun AddToWatchList(data: Data) {
-        TODO("Not yet implemented")
+        val wishlistEntity= WishlistEntity(data.name,data.id,data.symbol,data.quote.uSD.price,data.quote.uSD.percentChange24h)
+        viewModel2.CreateWishList(wishlistEntity)
     }
 }
