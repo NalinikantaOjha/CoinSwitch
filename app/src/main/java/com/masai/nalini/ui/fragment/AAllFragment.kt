@@ -1,6 +1,7 @@
 package com.masai.nalini.ui.fragment
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -25,6 +26,7 @@ import com.masai.nalini.remote.data.Network
 import com.masai.nalini.remote.model.datamodel.Data
 import com.masai.nalini.remote.model.datamodel.ModelDto
 import com.masai.nalini.repository.DataRepository
+import com.masai.nalini.ui.activity.CurrencyViewActivity
 import com.masai.nalini.ui.adapter.Adapter
 import com.masai.nalini.ui.adapter.listner.OnClickAddToWatchList
 import com.masai.nalini.viewmodel.MainViewModel
@@ -118,8 +120,16 @@ class AAllFragment : Fragment(),OnClickAddToWatchList {
     }
 
     override fun AddToWatchList(data: Data) {
-val wishlistEntity=WishlistEntity(data.name,data.id,data.symbol,data.quote.uSD.price,data.quote.uSD.percentChange24h)
-        viewModel2.CreateWishList(wishlistEntity)
+
+       val intent=Intent(this.context,CurrencyViewActivity::class.java)
+        intent.putExtra("name",data.name)
+        intent.putExtra("price",data.quote.uSD.price)
+        intent.putExtra("change",data.quote.uSD.percentChange24h)
+        intent.putExtra("monthhigh",data.quote.uSD.percentChange30d)
+        intent.putExtra("teomonth",data.quote.uSD.percentChange60d)
+        intent.putExtra("id",data.id)
+        intent.putExtra("symbol",data.symbol)
+        startActivity(intent)
     }
 }
 

@@ -30,4 +30,5 @@ fun CreateWishList(wishlistEntity: WishlistEntity){
 fun wishListDelete(wishlistEntity: WishlistEntity){
     return dataRepository.deleteWishList(wishlistEntity)
 }
+
 }

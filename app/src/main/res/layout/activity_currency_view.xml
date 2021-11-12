@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.CurrencyViewActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:orientation="horizontal"
+
+    android:layout_height="60dp">
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/backArrowCurrencyView"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:layout_height="40dp">
+
+    </ImageView>
+    <TextView
+        android:id="@+id/tvNameCV"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Bit"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content">
+
+    </TextView>
+</LinearLayout>
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_height="60dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:id="@+id/addToWatchList"
+                android:src="@drawable/ic_baseline_stars_24"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp">
+
+            </ImageView>
+            <ImageView
+
+                android:layout_width="50dp"
+                android:src="@drawable/ic_baseline_menu_open_24"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp">
+
+            </ImageView>
+
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+         android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="70dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/cryptoc"
+            android:layout_height="60dp">
+
+        </ImageView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:text="Current Buy Price"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="336.5"
+                    android:textSize="20dp"
+                    android:id="@+id/tvPriceCV"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="336.5"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:id="@+id/tvChangeCV"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Buy Price"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="11dp"
+
+                    android:textColor="@color/BlueViolet"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textSize="15dp"
+            android:text="1M Highest"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textSize="15dp"
+            android:id="@+id/tvHigh"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:text="$706"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textSize="15dp"
+            android:id="@+id/tvOneHighest"
+            android:text="2M Highest"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textSize="15dp"
+            android:id="@+id/tvLow"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:text="$706"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+    </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@color/BlueViolet"
+            android:text="BUY"
+            android:id="@+id/btnBuy"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="2dp"
+            android:layout_height="wrap_content">
+
+        </Button>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@color/BlueViolet"
+            android:text="SELL"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:id="@+id/btnSell"
+            android:textSize="20dp"
+            android:layout_marginLeft="2dp"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
+</RelativeLayout>

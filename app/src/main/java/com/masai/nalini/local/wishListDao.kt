@@ -2,9 +2,11 @@ package com.masai.nalini.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import retrofit2.http.GET
 
 @Dao
 interface wishListDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun register(wishlistEntity: WishlistEntity)
 
