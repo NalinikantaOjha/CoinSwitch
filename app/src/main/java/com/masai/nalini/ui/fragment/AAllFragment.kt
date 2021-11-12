@@ -2,11 +2,14 @@ package com.masai.nalini.ui.fragment
 
 import android.app.Activity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -30,6 +33,7 @@ import kotlinx.android.synthetic.main.fragment_a_all.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.ArrayList
 
 
 class AAllFragment : Fragment(),OnClickAddToWatchList {
@@ -46,6 +50,8 @@ class AAllFragment : Fragment(),OnClickAddToWatchList {
 
         }
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

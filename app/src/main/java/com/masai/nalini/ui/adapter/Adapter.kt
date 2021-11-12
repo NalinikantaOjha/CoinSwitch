@@ -14,7 +14,12 @@ class Adapter(
     var list: MutableList<Data>,
     val onClickAddToWatchList: OnClickAddToWatchList,
     var context: Context):RecyclerView.Adapter<DataViewHolder> (){
+public fun FILTER(
+    list2:MutableList<Data>){
+    list=list2
+    notifyDataSetChanged()
 
+}
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         Log.d("recycle","nalini")
 
