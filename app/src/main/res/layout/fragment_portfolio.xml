@@ -15,6 +15,7 @@
         android:orientation="vertical"
         android:layout_height="match_parent">
         <ImageView
+            android:src="@drawable/upper"
             android:layout_width="match_parent"
             android:layout_height="70dp">
 
