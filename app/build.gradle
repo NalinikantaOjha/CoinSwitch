@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -34,6 +35,8 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+
 //Retrofit
     def retrofit2_version = "2.9.0"
     def okhttp3_version = "4.9.0"
