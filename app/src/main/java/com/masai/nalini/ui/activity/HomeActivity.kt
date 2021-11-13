@@ -9,14 +9,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seenu_mobile.AdsAdapter.AdsAdapter
-import com.example.seenu_mobile.AdsAdapter.AdsImage
-import com.example.seenu_mobile.CoinSwitchAdapter.CoinSwitchImage
-import com.example.seenu_mobile.CoinSwitchAdapter.coinSwitchAdapter
-import com.example.seenu_mobile.Recommended_Read.RecommendedAdapter
-import com.example.seenu_mobile.Recommended_Read.RecommendedImage
-import com.example.seenu_mobile.popularAdapter.popularAdapter
-import com.example.seenu_mobile.popularAdapter.popularImage1
 
 
 class HomeActivity : AppCompatActivity() {
