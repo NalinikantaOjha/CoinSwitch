@@ -1,11 +1,11 @@
-package com.example.seenu_mobile.Recommended_Read
+package com.masai.nalini.ui.activity
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seenu_mobile.CoinSwitchAdapter.CoinSwitchImage
-import com.example.seenu_mobile.R
+import com.masai.nalini.R
+
 
 class RecommendedViewModel(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var image = itemView.findViewById<ImageView>(R.id.recommended_Image)

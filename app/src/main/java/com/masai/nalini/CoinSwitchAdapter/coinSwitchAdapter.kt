@@ -1,10 +1,10 @@
-package com.example.seenu_mobile.CoinSwitchAdapter
+package com.masai.nalini.ui.activity
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seenu_mobile.R
-import com.example.seenu_mobile.popularAdapter.popularViewModel
+
+import com.masai.nalini.R
 
 class coinSwitchAdapter(var arrayList2: ArrayList<CoinSwitchImage>) : RecyclerView.Adapter<CoinSwitchViewModel>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinSwitchViewModel {

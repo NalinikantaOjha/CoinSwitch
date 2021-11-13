@@ -1,4 +1,4 @@
-package com.example.seenu_mobile.Recommended_Read
+package com.masai.nalini.ui.activity
 
 class RecommendedImage(private var ads_image:Int, private var coin_switch_name:String) {
     @JvmName("getName1")

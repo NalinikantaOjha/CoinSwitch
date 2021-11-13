@@ -1,10 +1,10 @@
-package com.example.seenu_mobile.popularAdapter
+package com.masai.nalini.ui.activity
 
 import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seenu_mobile.AdsAdapter.AdsImage
-import com.example.seenu_mobile.R
+import com.masai.nalini.R
+
 
 class popularViewModel(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var image = itemView.findViewById<ImageView>(R.id.popularImage)

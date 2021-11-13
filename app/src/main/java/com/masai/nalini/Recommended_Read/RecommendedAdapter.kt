@@ -1,10 +1,9 @@
-package com.example.seenu_mobile.Recommended_Read
-
+package com.masai.nalini.ui.activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seenu_mobile.R
-import com.example.seenu_mobile.popularAdapter.popularViewModel
+import com.masai.nalini.R
+
 
 class RecommendedAdapter(var arrayList3: ArrayList<RecommendedImage>) : RecyclerView.Adapter<RecommendedViewModel>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecommendedViewModel {

@@ -1,4 +1,4 @@
-package com.example.seenu_mobile.CoinSwitchAdapter
+package com.masai.nalini.ui.activity
 
 class CoinSwitchImage(private var ads_image:Int, private var coin_switch_name:String) {
     @JvmName("getName1")

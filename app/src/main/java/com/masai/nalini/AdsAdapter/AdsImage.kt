@@ -1,4 +1,4 @@
-package com.example.seenu_mobile.AdsAdapter
+package com.masai.nalini.ui.activity
 
 class AdsImage(private var ads_image:Int ) {
     @JvmName("getName1")

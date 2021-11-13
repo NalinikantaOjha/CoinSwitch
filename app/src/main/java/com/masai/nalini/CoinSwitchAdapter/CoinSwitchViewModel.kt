@@ -1,12 +1,12 @@
-package com.example.seenu_mobile.CoinSwitchAdapter
+package com.masai.nalini.ui.activity
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seenu_mobile.R
-import com.example.seenu_mobile.Recommended_Read.RecommendedImage
-import com.example.seenu_mobile.popularAdapter.popularImage1
+
+
+import com.masai.nalini.R
 
 class CoinSwitchViewModel(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var image = itemView.findViewById<ImageView>(R.id.popularImage)

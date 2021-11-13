@@ -1,9 +1,10 @@
-package com.example.seenu_mobile.AdsAdapter
+package com.masai.nalini.ui.activity
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seenu_mobile.R
+import com.masai.nalini.R
+
 
 class AdsAdapter(private var array: ArrayList<AdsImage>): RecyclerView.Adapter<AdsViewModel>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdsViewModel {

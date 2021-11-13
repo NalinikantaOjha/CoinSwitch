@@ -1,10 +1,10 @@
-package com.example.seenu_mobile.popularAdapter
+package com.masai.nalini.ui.activity
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.seenu_mobile.AdsAdapter.AdsViewModel
-import com.example.seenu_mobile.R
+import com.masai.nalini.R
+
 
 class popularAdapter(var arrayList1: ArrayList<popularImage1>) : RecyclerView.Adapter<popularViewModel>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): popularViewModel {
