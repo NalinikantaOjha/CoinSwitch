@@ -3,20 +3,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.fragment.Market">
-<View
-    android:layout_width="match_parent"
-    android:background="@color/black"
-    android:layout_height="100dp">
 
-</View>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+
+    android:layout_height="60dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:text="Market is "
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textColor="#FF0000"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:text="0.05%"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:layout_marginTop="20dp"
+
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:text=" in last 24h"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </LinearLayout>
+
+<ImageView
+
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="30dp"
+    android:layout_alignParentRight="true"
+    android:layout_width="30dp"
+    android:id="@+id/imSearch"
+    android:src="@drawable/ic_baseline_search_24"
+    android:layout_height="50dp">
+
+</ImageView>
+</RelativeLayout>
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:id="@+id/tabLayout"
+            app:tabIndicatorColor="@color/BlueViolet"
+            app:tabIndicatorHeight="3dp"
+            app:tabTextColor="@color/BlueViolet"
+            android:scrollbarSize="100dp"
             android:layout_height="wrap_content">
 
         </com.google.android.material.tabs.TabLayout>
@@ -26,4 +80,5 @@
     android:id="@+id/viewPager"
     android:layout_height="match_parent">
 </androidx.viewpager2.widget.ViewPager2>
+
 </LinearLayout>
