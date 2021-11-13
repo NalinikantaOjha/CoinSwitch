@@ -69,10 +69,20 @@ class CurrencyViewActivity : AppCompatActivity() {
         tvLow.setText(credits5)
 
         if (change>0){
-
+ViewChart.setImageResource(R.drawable.posetivechart)
             tvChangeCV.setTextColor(Color.BLUE)
         }else{
+            ViewChart.setImageResource(R.drawable.nagativechart)
             tvChangeCV.setTextColor(Color.RED)
+        }
+        if(name.equals("Bitcoin")){
+            setLogo.setImageResource(R.drawable.bitcoin)
+        }else if (name.equals("Ethereum")){
+            setLogo.setImageResource(R.drawable.therum)
+        }else if (name.equals("Tether")){
+            setLogo.setImageResource(R.drawable.thther)
+        }else if (name.equals("Solana")){
+            setLogo.setImageResource(R.drawable.solana)
         }
 
         //watch list
