@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
 import com.masai.nalini.R
 import com.masai.nalini.local.WishListData
+import com.masai.nalini.local.transaction.TransactionDao
 import com.masai.nalini.local.wishListDao
 import com.masai.nalini.remote.data.ApiService
 import com.masai.nalini.remote.data.Netwark
@@ -32,7 +33,7 @@ class Market : Fragment() {
     lateinit var viewModel2: MainViewModel
     lateinit var wishListDao: wishListDao
     lateinit var repository: DataRepository
-
+lateinit var transactionDao:TransactionDao
     lateinit var adapter2: Adapter
     private var List = mutableListOf<Data>()
 
@@ -54,8 +55,9 @@ class Market : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         wishListDao= WishListData.getWishListDatabase(context as Activity).getWishList()
+        transactionDao=WishListData.getWishListDatabase(context as Activity).getTransaction()
         val userApi= Netwark.getInstance().create(ApiService::class.java)
-        repository= DataRepository(wishListDao,userApi)
+        repository= DataRepository(transactionDao,wishListDao,userApi)
         val wishlistFactory= ViewModelFactory(repository)
         viewModel2= ViewModelProviders.of(this,wishlistFactory).get(MainViewModel::class.java)
 

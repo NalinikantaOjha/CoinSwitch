@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kuber">
         <activity
+            android:name=".ui.activity.SellActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.BuyNowActivity2"
+            android:exported="true" />
+        <activity
             android:name=".ui.activity.CurrencyViewActivity"
             android:exported="true" />
         <activity

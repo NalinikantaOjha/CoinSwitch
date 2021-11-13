@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.masai.nalini.R
 import com.masai.nalini.local.WishListData
 import com.masai.nalini.local.WishlistEntity
+import com.masai.nalini.local.transaction.TransactionDao
 import com.masai.nalini.local.wishListDao
 import com.masai.nalini.remote.data.ApiCall
 import com.masai.nalini.remote.data.ApiService
@@ -33,7 +34,7 @@ class Watchlist : Fragment(),OnClickDeleteWishList {
     lateinit var mainViewModel: MainViewModel
     lateinit var repository: DataRepository
     lateinit var wishListDao: wishListDao
-
+lateinit var transactionDao: TransactionDao
     lateinit var adapter2: WishListAdapter
     private var List = mutableListOf<WishlistEntity>()
 
@@ -65,7 +66,8 @@ class Watchlist : Fragment(),OnClickDeleteWishList {
 
         wishListDao=WishListData.getWishListDatabase(context as Activity).getWishList()
         val userApi= Netwark.getInstance().create(ApiService::class.java)
-        repository= DataRepository(wishListDao,userApi)
+        transactionDao=WishListData.getWishListDatabase(context as Activity).getTransaction()
+        repository= DataRepository(transactionDao,wishListDao,userApi)
         val wishlistFactory= ViewModelFactory(repository)
         mainViewModel=ViewModelProviders.of(this,wishlistFactory).get(MainViewModel::class.java)
         setRecycle()

@@ -96,7 +96,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_width="30dp"
                 android:id="@+id/ivDelete"
-                android:src="@drawable/ic_baseline_delete_24"
+                android:src="@drawable/ic_baseline_stars_25"
                 android:layout_height="wrap_content">
 
             </ImageView>
