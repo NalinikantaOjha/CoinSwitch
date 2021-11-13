@@ -33,8 +33,8 @@ class MainViewModel(private val dataRepository: DataRepository):ViewModel() {
         dataRepository.UpdateTransaction(transactionEntity)
 
     }
-    fun getAllTransaction(transactionEntity: TransactionEntity){
-        dataRepository.getAllTransaction()
+    fun getAllTransaction():LiveData<List<TransactionEntity>>{
+        return dataRepository.getAllTransaction()
     }
 
 fun CreateWishList(wishlistEntity: WishlistEntity){
