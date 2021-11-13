@@ -89,6 +89,7 @@ imSearch.setOnClickListener {
             }else if (position==3){
                 tab.text="Top Losers"
             }
+            //nimit
         }.attach()
     }
 }

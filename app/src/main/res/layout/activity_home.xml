@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text = "Total Worth"
+    android:layout_margin="10dp"
+    android:id = "@+id/tvTotal"
+    />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text = "Rs. 0"
+      android:layout_margin="10dp"
+      android:id = "@+id/tv0"
+      android:layout_below="@id/tvTotal"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:weightSum="2"
+       android:orientation="horizontal"
+       android:id = "@+id/Nimit"
+       android:layout_below="@id/tv0"
+       android:layout_marginTop="10dp">
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:text = "Buy BITCOIN"
+           android:layout_margin = "10dp"
+           android:backgroundTint="@drawable/rectangle"
+           />
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:text = "UNLOCK WALLET"
+           android:textColor = "#3F51B5"
+
+           android:layout_margin ="10dp"
+           android:backgroundTint="@drawable/rectangle"
+           />
+   </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id = "@+id/LinearLayout"
+    android:layout_below="@id/Nimit"
+    android:orientation="vertical">
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id = "@+id/AdsRecyclerView"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LinearLayout"
+            android:text ="Popular Currencies"
+            android:textSize="18sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LinearLayout"
+            android:text ="See More"
+            android:textColor="#3F51B5"
+            android:layout_marginRight="5dp"
+            android:id = "@+id/tvSeemore"
+            android:layout_alignParentRight="true"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/LinearLayout1"
+            android:layout_below="@id/tvSeemore"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id = "@+id/popularRecyclerView"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "CoinSwitch TV"
+            android:layout_below="@id/LinearLayout1"
+            android:layout_marginTop="5dp"
+            android:id = "@+id/tvCoinSwitchTV"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/LinearLayout2"
+            android:layout_below="@id/tvCoinSwitchTV"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id = "@+id/CoinSwitchRecyclerView"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LinearLayout2"
+            android:text="Recommended Reads"
+            android:layout_marginTop="20dp"
+            android:id = "@+id/tvRecommended_Reads"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/LinearLayout2"
+            android:text = "See More"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#3F51B5"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/LinearLayout3"
+            android:layout_below="@id/tvRecommended_Reads"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id = "@+id/RecyclerViewRecommendedRead"/>
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:layout_below="@id/LinearLayout3"
+            android:layout_marginTop="40dp"
+            android:src = "@drawable/last"
+            android:scaleType="fitXY"
+/>
+</RelativeLayout>
+
+</ScrollView>

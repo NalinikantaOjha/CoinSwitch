@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.SignInActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+   >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Need Help?"
+        android:layout_alignParentRight="true"
+        android:textSize="18dp"
+        android:layout_margin="10dp"
+        android:textColor="#3F51B5"
+        android:textStyle="normal"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src = "@drawable/phone"
+        android:backgroundTint="#3F51B5"
+        android:layout_above="@id/tv1"
+        android:layout_marginBottom="40dp"
+
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Let's Get Started"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:textStyle="normal"
+        android:id="@+id/tv1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We will send an OTP to your mobile no."
+        android:layout_below="@id/tv1"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:id = "@+id/tv2"
+        android:textSize="18sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv2"
+        android:id = "@+id/LinearLayout"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/rectangle"
+            android:hint="Please Enter the Mobile No."
+            android:textColor="@color/black" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id = "@+id/frame">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id = "@+id/btn"
+                android:background="@drawable/rectangle"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/arrow"
+                android:layout_marginRight="10dp"
+                />
+            <ProgressBar
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:id = "@+id/ProgressBar"
+                android:visibility="gone"/>
+        </FrameLayout>
+
+    </LinearLayout>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "I have read and the understood Terms and Privacy Policy"
+        android:id = "@+id/checkbox"
+        android:layout_below="@id/LinearLayout"/>
+
+</RelativeLayout>
