@@ -14,13 +14,13 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+
 import com.masai.nalini.R;
 
 public class OTPVarification extends AppCompatActivity {
@@ -67,12 +67,13 @@ public class OTPVarification extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 btn.setVisibility(View.VISIBLE);
                                 if(task.isSuccessful()){
-                                    Intent intent = new Intent(OTPVarification.this, NextScreen.class);
+                                    Intent intent = new Intent(OTPVarification.this, FragmentActivity.class);
                                     //will not come to otp verification
                                     intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK| intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
                                 }
                                 else{
-                                    Intent intent = new Intent(OTPVarification.this, NextScreen.class);
+                                    Intent intent = new Intent(OTPVarification.this, FragmentActivity.class);
                                     //will not come to otp verification
                                     intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK| intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
