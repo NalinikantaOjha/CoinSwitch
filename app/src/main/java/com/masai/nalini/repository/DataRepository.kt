@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.masai.nalini.local.WishlistEntity
+import com.masai.nalini.local.transaction.TransactionDao
+import com.masai.nalini.local.transaction.TransactionEntity
 import com.masai.nalini.local.wishListDao
 import com.masai.nalini.remote.data.ApiService
 import com.masai.nalini.remote.model.datamodel.ModelDto
@@ -11,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DataRepository (val wishListDao: wishListDao,private val userApi:ApiService){
+class DataRepository (val transactionDao: TransactionDao,val wishListDao: wishListDao,private val userApi:ApiService){
     private val userLiveData=MutableLiveData<ModelDto>()
 
     val  user:LiveData<ModelDto>
@@ -25,7 +27,25 @@ class DataRepository (val wishListDao: wishListDao,private val userApi:ApiServic
             Log.d("getdata","response")
         }
     }
+fun CreateTransaction(transactionEntity: TransactionEntity){
+    CoroutineScope(Dispatchers.IO).launch {
+        transactionDao.register(transactionEntity)
+    }
+}
+    fun DeleteTransaction(transactionEntity: TransactionEntity){
+        CoroutineScope(Dispatchers.IO).launch {
+            transactionDao.deleteTransaction(transactionEntity)
+        }
+    }
+    fun getAllTransaction():LiveData<List<TransactionEntity>>{
+       return transactionDao.getTransaction()
 
+    }
+    fun UpdateTransaction(transactionEntity: TransactionEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            transactionDao.deleteTransaction(transactionEntity)
+        }
+    }
 
     fun createWishList(wishlistEntity: WishlistEntity){
         CoroutineScope(Dispatchers.IO).launch {
@@ -42,6 +62,11 @@ class DataRepository (val wishListDao: wishListDao,private val userApi:ApiServic
 
 
     }
-
+fun IsAvalable(user:Int): LiveData<List<WishlistEntity>> {
+    return wishListDao.findByIds(user)
+}
+    fun IsUpdatable(user:Int):LiveData<List<TransactionEntity>>{
+        return transactionDao.findByIdSell(user)
+    }
 
 }

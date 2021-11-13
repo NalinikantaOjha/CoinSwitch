@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 
 import androidx.lifecycle.viewModelScope
 import com.masai.nalini.local.WishlistEntity
+import com.masai.nalini.local.transaction.TransactionEntity
 import com.masai.nalini.remote.model.datamodel.ModelDto
 import kotlinx.coroutines.Dispatchers
 
@@ -20,6 +21,21 @@ class MainViewModel(private val dataRepository: DataRepository):ViewModel() {
     }
         val user:LiveData<ModelDto>
         get()=dataRepository.user
+    fun CreateTransation(transactionEntity: TransactionEntity){
+        dataRepository.CreateTransaction(transactionEntity)
+
+    }
+    fun DeleteTransaction(transactionEntity: TransactionEntity){
+        dataRepository.DeleteTransaction(transactionEntity)
+
+    }
+    fun UpdateTransaction(transactionEntity: TransactionEntity){
+        dataRepository.UpdateTransaction(transactionEntity)
+
+    }
+    fun getAllTransaction(transactionEntity: TransactionEntity){
+        dataRepository.getAllTransaction()
+    }
 
 fun CreateWishList(wishlistEntity: WishlistEntity){
     dataRepository.createWishList(wishlistEntity)
@@ -30,5 +46,10 @@ fun CreateWishList(wishlistEntity: WishlistEntity){
 fun wishListDelete(wishlistEntity: WishlistEntity){
     return dataRepository.deleteWishList(wishlistEntity)
 }
-
+fun IsAvalable(user:Int): LiveData<List<WishlistEntity>> {
+    return dataRepository.IsAvalable(user)
+}
+    fun IsSellble(user:Int):LiveData<List<TransactionEntity>>{
+        return dataRepository.IsUpdatable(user)
+    }
 }

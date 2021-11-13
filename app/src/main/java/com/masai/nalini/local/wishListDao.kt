@@ -14,4 +14,6 @@ interface wishListDao {
     @Delete
     fun wishlistDelete(wishlistEntity: WishlistEntity)
 
+    @Query("SELECT * FROM wishlistTable WHERE id IN(:userIds)")
+    fun findByIds(userIds: Int): LiveData<List<WishlistEntity>>
 }

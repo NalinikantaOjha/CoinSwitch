@@ -1,14 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.Portfolio">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+        </ImageView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="Current value      |"
+                android:textSize="15dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="Invested value     |"
+                android:textSize="15dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="  Gain/Loss"
+                android:textSize="15dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="$0"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="$0"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+
+                android:textSize="20dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+
+                android:textSize="20dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/stocksRecycle"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </LinearLayout>
+        <ImageView
+            android:id="@+id/ivImageforshow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ImageView>
+        <Button
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="BUY BITCOIN"
+            android:layout_centerHorizontal="true"
+            android:background="@color/BlueViolet"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:id="@+id/btnBuyBitcoin"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+    </RelativeLayout>
+</ScrollView>
