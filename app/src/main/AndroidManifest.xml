@@ -17,18 +17,14 @@
         <activity
             android:name=".ui.activity.NextScreen"
             android:exported="true" />
-        <activity
-            android:name=".ui.activity.NextActivity"
-            android:exported="true" />
+
         <activity
             android:name=".ui.activity.OTPVarification"
             android:exported="true" />
         <activity
             android:name=".ui.activity.SignInActivity"
             android:exported="true" />
-        <activity
-            android:name=".ui.activity.signinActivity"
-            android:exported="true" />
+
         <activity
             android:name=".ui.activity.SellActivity2"
             android:exported="true" />
@@ -41,11 +37,11 @@
         <activity
             android:name=".ui.activity.SearchActivity2"
             android:exported="true" />
+<!--        <activity-->
+<!--            android:name=".ui.activity.FragmentActivity"-->
+<!--            android:exported="true" />-->
         <activity
             android:name=".ui.activity.FragmentActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

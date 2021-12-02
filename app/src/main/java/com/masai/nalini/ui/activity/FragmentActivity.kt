@@ -31,7 +31,6 @@ class FragmentActivity : AppCompatActivity() {
         bottomNavigation.setOnItemSelectedListener(NavigationBarView.OnItemSelectedListener { item ->
             var temp: Fragment? = null
             when (item.itemId) {
-                R.id.menuHome -> temp = Home()
                 R.id.menuProfile -> temp = Profile()
                 R.id.menuRewards -> temp = Rewards()
                 R.id.menuPortfolio -> temp = Portfolio()

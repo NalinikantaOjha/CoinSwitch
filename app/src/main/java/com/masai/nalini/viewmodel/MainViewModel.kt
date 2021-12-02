@@ -13,43 +13,52 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class MainViewModel(private val dataRepository: DataRepository):ViewModel() {
+class MainViewModel(private val dataRepository: DataRepository) : ViewModel() {
     init {
-        viewModelScope.launch (Dispatchers.IO){
+        viewModelScope.launch(Dispatchers.IO) {
             dataRepository.getData()
         }
     }
-        val user:LiveData<ModelDto>
-        get()=dataRepository.user
-    fun CreateTransation(transactionEntity: TransactionEntity){
+
+    val user: LiveData<ModelDto>
+        get() = dataRepository.user
+
+    fun CreateTransation(transactionEntity: TransactionEntity) {
         dataRepository.CreateTransaction(transactionEntity)
 
     }
-    fun DeleteTransaction(transactionEntity: TransactionEntity){
+
+    fun DeleteTransaction(transactionEntity: TransactionEntity) {
         dataRepository.DeleteTransaction(transactionEntity)
 
     }
-    fun UpdateTransaction(transactionEntity: TransactionEntity){
+
+    fun UpdateTransaction(transactionEntity: TransactionEntity) {
         dataRepository.UpdateTransaction(transactionEntity)
 
     }
-    fun getAllTransaction():LiveData<List<TransactionEntity>>{
+
+    fun getAllTransaction(): LiveData<List<TransactionEntity>> {
         return dataRepository.getAllTransaction()
     }
 
-fun CreateWishList(wishlistEntity: WishlistEntity){
-    dataRepository.createWishList(wishlistEntity)
-}
-    fun getWishList():LiveData<List<WishlistEntity>>{
+    fun CreateWishList(wishlistEntity: WishlistEntity) {
+        dataRepository.createWishList(wishlistEntity)
+    }
+
+    fun getWishList(): LiveData<List<WishlistEntity>> {
         return dataRepository.getWishList()
     }
-fun wishListDelete(wishlistEntity: WishlistEntity){
-    return dataRepository.deleteWishList(wishlistEntity)
-}
-fun IsAvalable(user:Int): LiveData<List<WishlistEntity>> {
-    return dataRepository.IsAvalable(user)
-}
-    fun IsSellble(user:Int):LiveData<List<TransactionEntity>>{
+
+    fun wishListDelete(wishlistEntity: WishlistEntity) {
+        return dataRepository.deleteWishList(wishlistEntity)
+    }
+
+    fun IsAvalable(user: Int): LiveData<List<WishlistEntity>> {
+        return dataRepository.IsAvalable(user)
+    }
+
+    fun IsSellble(user: Int): LiveData<List<TransactionEntity>> {
         return dataRepository.IsUpdatable(user)
     }
 }

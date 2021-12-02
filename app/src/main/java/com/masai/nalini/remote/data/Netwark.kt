@@ -4,11 +4,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class Netwark {
-    companion object{
+    companion object {
 
-        val BaseUrl="https://pro-api.coinmarketcap.com/"
+        val BaseUrl = "https://pro-api.coinmarketcap.com/"
 
-        fun getInstance():Retrofit{
+        fun getInstance(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(BaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())

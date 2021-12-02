@@ -30,12 +30,12 @@ import kotlinx.android.synthetic.main.fragment_top_gainers.*
 import java.util.*
 
 
-class TopGainers : Fragment(),OnClickAddToWatchList {
+class TopGainers : Fragment(), OnClickAddToWatchList {
 
     lateinit var viewModel2: MainViewModel
     lateinit var wishListDao: wishListDao
     lateinit var repository: DataRepository
-lateinit var transactionDao:TransactionDao
+    lateinit var transactionDao: TransactionDao
     lateinit var adapter2: Adapter
     private var List = mutableListOf<Data>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,15 +55,15 @@ lateinit var transactionDao:TransactionDao
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        wishListDao= WishListData.getWishListDatabase(context as Activity).getWishList()
-        val userApi= Netwark.getInstance().create(ApiService::class.java)
-        transactionDao=WishListData.getWishListDatabase(context as Activity).getTransaction()
-        repository= DataRepository(transactionDao,wishListDao,userApi)
-        val wishlistFactory= ViewModelFactory(repository)
-        viewModel2= ViewModelProviders.of(this,wishlistFactory).get(MainViewModel::class.java)
+        wishListDao = WishListData.getWishListDatabase(context as Activity).getWishList()
+        val userApi = Netwark.getInstance().create(ApiService::class.java)
+        transactionDao = WishListData.getWishListDatabase(context as Activity).getTransaction()
+        repository = DataRepository(transactionDao, wishListDao, userApi)
+        val wishlistFactory = ViewModelFactory(repository)
+        viewModel2 = ViewModelProviders.of(this, wishlistFactory).get(MainViewModel::class.java)
 
         viewModel2.user.observe(viewLifecycleOwner, Observer {
-            Log.d("getdata","response")
+            Log.d("getdata", "response")
             List.clear()
             List.addAll(it.data as MutableList<Data>)
             List.sortByDescending {
@@ -74,21 +74,22 @@ lateinit var transactionDao:TransactionDao
 
         setRecycle()
     }
-    fun setRecycle(){
-        adapter2 = Adapter(List,this,context as Activity)
+
+    fun setRecycle() {
+        adapter2 = Adapter(List, this, context as Activity)
         recycleTopGainers.adapter = adapter2
         recycleTopGainers.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun AddToWatchList(data: Data) {
-        val intent= Intent(this.context, CurrencyViewActivity::class.java)
-        intent.putExtra("name",data.name)
-        intent.putExtra("price",data.quote.uSD.price)
-        intent.putExtra("change",data.quote.uSD.percentChange24h)
-        intent.putExtra("monthhigh",data.quote.uSD.percentChange30d)
-        intent.putExtra("teomonth",data.quote.uSD.percentChange60d)
-        intent.putExtra("id",data.id)
-        intent.putExtra("symbol",data.symbol)
+        val intent = Intent(this.context, CurrencyViewActivity::class.java)
+        intent.putExtra("name", data.name)
+        intent.putExtra("price", data.quote.uSD.price)
+        intent.putExtra("change", data.quote.uSD.percentChange24h)
+        intent.putExtra("monthhigh", data.quote.uSD.percentChange30d)
+        intent.putExtra("teomonth", data.quote.uSD.percentChange60d)
+        intent.putExtra("id", data.id)
+        intent.putExtra("symbol", data.symbol)
         startActivity(intent)
     }
 }

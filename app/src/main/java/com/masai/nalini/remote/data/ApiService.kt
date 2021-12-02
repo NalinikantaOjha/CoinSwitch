@@ -7,6 +7,7 @@ import retrofit2.http.Header
 
 interface ApiService {
     @GET("v1/cryptocurrency/listings/latest")
-suspend fun getData(
-        @Header("X-CMC_PRO_API_KEY") token:String):Response<ModelDto>
+    suspend fun getData(
+        @Header("X-CMC_PRO_API_KEY") token: String
+    ): Response<ModelDto>
 }
