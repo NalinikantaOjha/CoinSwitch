@@ -4,7 +4,7 @@
  ##
  ##
  
- ![GitHub Cards Preview](https://cdn-images-1.medium.com/max/500/1*9sG0ZAFpSWG9XoUO_Y_EWw.jpeg)
+ ![GitHub Cards Preview](https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/q3wpyvvmce474qly_1619088381.jpeg)
 
 ## The Journey of making CoinSwitch Android App
 
