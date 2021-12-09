@@ -29,7 +29,7 @@ In the meantime, I handled the Market Fragment, API calls, Room Database, Watchl
 
 Though this project was not a piece of cake. I loved to work with these amazing guys during this 5 days journey we got lots of learnings and got a broader perspective about the application lifecycle.
 
-![GitHub Cards Preview](https://i.ytimg.com/vi/htVcTBYKSeI/maxresdefault.jpg)
+
 
 
 
