@@ -22,7 +22,7 @@ class MainViewModel(private var dataRepository: DataRepository):ViewModel() {
        viewModelScope.launch (Dispatchers.IO){
            while (NonCancellable.isActive){
                dataRepository.getData()
-               delay(500000)
+               delay(50000)
                Log.d("nalini","call")
            }
 
@@ -32,43 +32,11 @@ class MainViewModel(private var dataRepository: DataRepository):ViewModel() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     fun CreateTransation(transactionEntity: TransactionEntity){
 
         dataRepository.CreateTransaction(transactionEntity)
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     fun DeleteTransaction(transactionEntity: TransactionEntity){
         dataRepository.DeleteTransaction(transactionEntity)
 
