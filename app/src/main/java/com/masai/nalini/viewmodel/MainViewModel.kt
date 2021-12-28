@@ -10,7 +10,7 @@ import com.masai.nalini.local.WishlistEntity
 import com.masai.nalini.local.transaction.TransactionEntity
 import com.masai.nalini.remote.model.datamodel.ModelDto
 import kotlinx.coroutines.*
-
+import java.util.concurrent.TimeUnit
 
 
 class MainViewModel(private var dataRepository: DataRepository):ViewModel() {
@@ -22,7 +22,8 @@ class MainViewModel(private var dataRepository: DataRepository):ViewModel() {
        viewModelScope.launch (Dispatchers.IO){
            while (NonCancellable.isActive){
                dataRepository.getData()
-               delay(50000)
+               delay(500000)
+
                Log.d("nalini","call")
            }
 
