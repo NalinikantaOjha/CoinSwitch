@@ -48,7 +48,6 @@
             android:textStyle="italic"
             android:textSize="15dp"
             android:id="@+id/tvAvailable"
-            android:text="$500.11 Available"
             android:layout_height="wrap_content">
 
         </TextView>

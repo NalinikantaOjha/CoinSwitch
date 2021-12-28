@@ -1,6 +1,7 @@
 package com.masai.nalini.ui.activity
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.INotificationSideChannel
@@ -35,6 +36,8 @@ class SellActivity2 : AppCompatActivity() {
     var ammount1:Int=0
     lateinit var adapter2: Adapter
     private var List = mutableListOf<Data>()
+    private var List2= mutableListOf<TransactionEntity>()
+
     @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,13 +62,26 @@ class SellActivity2 : AppCompatActivity() {
         val id=intent.getIntExtra("id",0)
         val name1=name.toString()
         val symbol2=symbol.toString()
-        viewModel2.IsSellble(id).observe(this, Observer {
+        viewModel2.getAllTransaction().observe(this, Observer {
             //  Toast.makeText(this,it.amount.toString(),Toast.LENGTH_SHORT).show()
 //if (it.size>0){
 //    tvAvailableSell.setText("$"+it[0].amount.toString()+".00Available ")
 //    etSellNow.setText(it[1].amount.toString())
 //}
+            List2.addAll(it)
+            var a=0
+List2.forEach{
+    if (it.id==id){
+        etSellNow.setText(it.amount.toString())
+        tvAvailableSell.setText("$${it.amount} ${it.name} Available for sale")
+a++
+    }
+}
+            if (a==0){
+                tvAvailableSell.setText("No  $name Available for sale")
+                tvAvailableSell.setTextColor(Color.RED)
 
+            }
 
 
         })
