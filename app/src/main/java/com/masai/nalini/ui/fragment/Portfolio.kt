@@ -116,9 +116,13 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
                                 }
                         }
                     }
+                    Log.d("nalinidata",listofData.size.toString())
+                    if (listofData.size>0){
                     List2.forEach {
 
-                        if (it.id === listofData.get(listofData.size-1)){  v = v + it.quote.uSD.price
+                            if (it.id === listofData.get(listofData.size - 1)) {
+                                v = v + it.quote.uSD.price
+                            }
                         }
                     }
                     val number = java.lang.Double.valueOf(Worth)
