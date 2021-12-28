@@ -27,8 +27,10 @@ import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_search2.*
 import kotlinx.android.synthetic.main.fragment_a_all.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
 class SearchActivity2 : AppCompatActivity() ,OnClickAddToWatchList{
+    @InternalCoroutinesApi
     lateinit var viewModel2: MainViewModel
     lateinit var wishListDao: wishListDao
     lateinit var repository: DataRepository
@@ -36,6 +38,7 @@ class SearchActivity2 : AppCompatActivity() ,OnClickAddToWatchList{
 
     lateinit var adapter2: Adapter
     private var List = mutableListOf<Data>()
+    @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search2)
@@ -65,7 +68,7 @@ class SearchActivity2 : AppCompatActivity() ,OnClickAddToWatchList{
         })
 
         Log.d("getdata","response")
-        viewModel2.user.observe(this, Observer {
+        viewModel2.dataLive().observe(this, Observer {
             Log.d("getdata","response")
             List.clear()
             List.addAll(it.data as MutableList<Data>)
@@ -93,6 +96,7 @@ class SearchActivity2 : AppCompatActivity() ,OnClickAddToWatchList{
         recycleSearch.layoutManager = LinearLayoutManager(this)
     }
 
+    @InternalCoroutinesApi
     override fun AddToWatchList(data: Data) {
         val wishlistEntity= WishlistEntity(data.name,data.id,data.symbol,data.quote.uSD.price,data.quote.uSD.percentChange24h)
         viewModel2.CreateWishList(wishlistEntity)

@@ -24,13 +24,13 @@
             android:name=".ui.activity.SearchActivity2"
             android:exported="true" />
         <activity
-            android:name=".ui.activity.FragmentActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true" />
         <activity
             android:name=".ui.activity.SignInActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".ui.activity.FragmentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

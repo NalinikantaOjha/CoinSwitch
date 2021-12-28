@@ -28,9 +28,11 @@ import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_top_losers.*
 import kotlinx.android.synthetic.main.fragment_watchlist.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
 
 class Watchlist : Fragment(),OnClickDeleteWishList {
+    @InternalCoroutinesApi
     lateinit var mainViewModel: MainViewModel
     lateinit var repository: DataRepository
     lateinit var wishListDao: wishListDao
@@ -55,6 +57,7 @@ lateinit var transactionDao: TransactionDao
     }
 
 
+    @InternalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val apiCll= Netwark.getInstance().create(ApiCall::class.java)
@@ -86,6 +89,7 @@ List.clear()
         recycleWishlist.layoutManager = LinearLayoutManager(requireContext())
     }
 
+    @InternalCoroutinesApi
     override fun OnDelteWatch(wishlistEntity: WishlistEntity){
         //val wishlistEntity=WishlistEntity(data.name,data.id,data.symbol,data.quote.uSD.price,data.quote.uSD.percentChange24h)
         mainViewModel.wishListDelete(wishlistEntity)

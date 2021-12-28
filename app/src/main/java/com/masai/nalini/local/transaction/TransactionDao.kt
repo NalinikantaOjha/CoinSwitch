@@ -8,6 +8,10 @@ import com.masai.nalini.local.WishlistEntity
 interface TransactionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun register(transactionDao: TransactionEntity)
+
+
+
+
     @Query("select * from transactionTable")
     fun getTransaction():LiveData<List<TransactionEntity>>
     @Update

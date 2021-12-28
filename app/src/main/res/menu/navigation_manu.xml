@@ -5,11 +5,7 @@
         android:icon="@drawable/ic_baseline_insert_chart_24"
         android:title="@string/market">
     </item>
-<item
-    android:id="@+id/menuHome"
-    android:icon="@drawable/ic_baseline_home_24"
-    android:title="@string/home">
-</item>
+
     <item
         android:id="@+id/menuPortfolio"
         android:icon="@drawable/ic_baseline_insert_drive_file_24"
@@ -21,7 +17,7 @@
         android:icon="@drawable/ic_baseline_card_giftcard_24"
 
         android:iconTint="@color/BlueViolet"
-        android:title="">
+        android:title="Rewards">
     </item>
 
     <item

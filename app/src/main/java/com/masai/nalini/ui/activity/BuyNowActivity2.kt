@@ -18,8 +18,10 @@ import com.masai.nalini.ui.adapter.Adapter
 import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_buy_now2.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
 class BuyNowActivity2 : AppCompatActivity() {
+    @InternalCoroutinesApi
     lateinit var viewModel2: MainViewModel
     lateinit var wishListDao: wishListDao
     lateinit var repository: DataRepository
@@ -27,36 +29,42 @@ class BuyNowActivity2 : AppCompatActivity() {
 
     lateinit var adapter2: Adapter
     private var List = mutableListOf<Data>()
+
+    @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_buy_now2)
-        transactionDao=WishListData.getWishListDatabase(this).getTransaction()
+        transactionDao = WishListData.getWishListDatabase(this).getTransaction()
 
 
 
-        wishListDao= WishListData.getWishListDatabase( this).getWishList()
-        val userApi= Netwark.getInstance().create(ApiService::class.java)
-        repository= DataRepository(transactionDao,wishListDao,userApi)
-        val wishlistFactory= ViewModelFactory(repository)
-        viewModel2= ViewModelProviders.of(this,wishlistFactory).get(MainViewModel::class.java)
+        wishListDao = WishListData.getWishListDatabase(this).getWishList()
+        val userApi = Netwark.getInstance().create(ApiService::class.java)
+        repository = DataRepository(transactionDao, wishListDao, userApi)
+        val wishlistFactory = ViewModelFactory(repository)
+        viewModel2 = ViewModelProviders.of(this, wishlistFactory).get(MainViewModel::class.java)
 
-        val intent=intent
-        val name =intent.getStringExtra("name")
-        val price=intent.getDoubleExtra("price",0.0)
-        val change=intent.getDoubleExtra("change",0.0)
-        val oneMonth=intent.getDoubleExtra("monthhigh",0.0)
-        val twoMonth=intent.getDoubleExtra("teomonth",0.0)
-        val symbol=intent.getStringExtra("symbol")
-        val id=intent.getIntExtra("id",0)
-val name1=name.toString()
-        val symbol2=symbol.toString()
-btnBuy.setOnClickListener {
-    var amount1=0
-    amount1=etAmount.text.toString().toInt()
-    val transactionEntity=TransactionEntity(amount1,name1,id,symbol2,price,change)
-    viewModel2.CreateTransation(transactionEntity)
-    val intent= Intent(this,FragmentActivity::class.java)
-    startActivity(intent)
-}
+        val intent = intent
+        val name = intent.getStringExtra("name")
+        val price = intent.getDoubleExtra("price", 0.0)
+        val change = intent.getDoubleExtra("change", 0.0)
+        val oneMonth = intent.getDoubleExtra("monthhigh", 0.0)
+        val twoMonth = intent.getDoubleExtra("teomonth", 0.0)
+        val symbol = intent.getStringExtra("symbol")
+        val id = intent.getIntExtra("id", 0)
+        val name1 = name.toString()
+        val symbol2 = symbol.toString()
+        btnBuy.setOnClickListener {
+            var amount1 = 0
+            amount1 = etAmount.text.toString().toInt()
+
+            val transactionEntity = TransactionEntity(amount1, name1, id, symbol2, price, change)
+
+
+            viewModel2.CreateTransation(transactionEntity)
+
+            val intent = Intent(this, FragmentActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

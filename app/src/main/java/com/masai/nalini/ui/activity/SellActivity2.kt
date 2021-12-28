@@ -22,8 +22,10 @@ import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_buy_now2.*
 import kotlinx.android.synthetic.main.activity_sell2.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
 class SellActivity2 : AppCompatActivity() {
+    @InternalCoroutinesApi
     lateinit var viewModel2: MainViewModel
     lateinit var wishListDao: wishListDao
     lateinit var repository: DataRepository
@@ -33,6 +35,7 @@ class SellActivity2 : AppCompatActivity() {
     var ammount1:Int=0
     lateinit var adapter2: Adapter
     private var List = mutableListOf<Data>()
+    @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sell2)

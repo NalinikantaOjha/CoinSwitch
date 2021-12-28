@@ -25,9 +25,11 @@ import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_currency_view.*
 import kotlinx.android.synthetic.main.activity_sell2.*
 import kotlinx.android.synthetic.main.item_layout.view.*
+import kotlinx.coroutines.InternalCoroutinesApi
 import java.text.DecimalFormat
 
 class CurrencyViewActivity : AppCompatActivity() {
+    @InternalCoroutinesApi
     lateinit var viewModel2: MainViewModel
     lateinit var wishListDao: wishListDao
     lateinit var repository: DataRepository
@@ -36,6 +38,7 @@ class CurrencyViewActivity : AppCompatActivity() {
 
     private var List = mutableListOf<Data>()
     val dec = DecimalFormat("#.##")
+    @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_currency_view)

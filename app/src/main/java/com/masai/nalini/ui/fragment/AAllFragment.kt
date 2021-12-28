@@ -33,6 +33,7 @@ import com.masai.nalini.ui.adapter.listner.OnClickAddToWatchList
 import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_a_all.*
+import kotlinx.coroutines.InternalCoroutinesApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,6 +41,7 @@ import java.util.ArrayList
 
 
 class AAllFragment : Fragment(),OnClickAddToWatchList {
+
     lateinit var viewModel2: MainViewModel
     lateinit var wishListDao: wishListDao
     lateinit var repository: DataRepository
@@ -65,20 +67,28 @@ class AAllFragment : Fragment(),OnClickAddToWatchList {
         return inflater.inflate(R.layout.fragment_a_all, container, false)
     }
 
+    @InternalCoroutinesApi
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         wishListDao=WishListData.getWishListDatabase(context as Activity).getWishList()
+
         val userApi= Netwark.getInstance().create(ApiService::class.java)
         transactionDao=WishListData.getWishListDatabase(context as Activity).getTransaction()
         repository= DataRepository(transactionDao,wishListDao,userApi)
         val wishlistFactory=ViewModelFactory(repository)
         viewModel2=ViewModelProviders.of(this,wishlistFactory).get(MainViewModel::class.java)
-
+//callApi2()
         setRecycle()
 
-        Log.d("getdata","response")
-        viewModel2.user.observe(viewLifecycleOwner, Observer {
+
+
+
+
+
+
+        viewModel2.dataLive().observe(viewLifecycleOwner, Observer {
             Log.d("getdata","response")
             List.clear()
             List.addAll(it.data as MutableList<Data>)
@@ -93,14 +103,14 @@ class AAllFragment : Fragment(),OnClickAddToWatchList {
 
 
         val apiCall= Network.getRetrofitInstance().create(ApiCall::class.java)
-        apiCall.getUserDetails2("de3fcad6-161b-4dfc-9fa1-889c99422601").enqueue(object : Callback<ModelDto> {
+        apiCall.getUserDetails2("305eacd5-692f-4356-9722-84c146d79a90").enqueue(object : Callback<ModelDto> {
             override fun onResponse(call: Call<ModelDto>, response: Response<ModelDto>) {
                 Log.d("recycle1", response.body()?.status?.totalCount.toString())
                 Log.d("recycle",List.size.toString())
                 response.body()!!.data.let {
 
                     List= it as MutableList<Data>
-                  // setRecycle()
+                  setRecycle()
 
 
                 }
@@ -114,8 +124,8 @@ class AAllFragment : Fragment(),OnClickAddToWatchList {
         })
 
 
-
     }
+
     fun setRecycle(){
         adapter2 = Adapter(List,this,context as Activity)
         recycleAll.adapter = adapter2

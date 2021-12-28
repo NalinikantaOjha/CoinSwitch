@@ -27,10 +27,12 @@ import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_top_gainers.*
 import kotlinx.android.synthetic.main.fragment_top_losers.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
 
 class TopLosers : Fragment(),OnClickAddToWatchList {
 
+    @InternalCoroutinesApi
     lateinit var viewModel2: MainViewModel
     lateinit var wishListDao: wishListDao
     lateinit var repository: DataRepository
@@ -53,6 +55,7 @@ class TopLosers : Fragment(),OnClickAddToWatchList {
         return inflater.inflate(R.layout.fragment_top_losers, container, false)
     }
 
+    @InternalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         wishListDao= WishListData.getWishListDatabase(context as Activity).getWishList()
@@ -62,7 +65,7 @@ class TopLosers : Fragment(),OnClickAddToWatchList {
         val wishlistFactory= ViewModelFactory(repository)
         viewModel2= ViewModelProviders.of(this,wishlistFactory).get(MainViewModel::class.java)
 
-        viewModel2.user.observe(viewLifecycleOwner, Observer {
+        viewModel2.dataLive().observe(viewLifecycleOwner, Observer {
             Log.d("getdata","response")
             List.clear()
             List.addAll(it.data as MutableList<Data>)

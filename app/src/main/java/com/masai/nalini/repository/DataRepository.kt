@@ -9,9 +9,7 @@ import com.masai.nalini.local.transaction.TransactionEntity
 import com.masai.nalini.local.wishListDao
 import com.masai.nalini.remote.data.ApiService
 import com.masai.nalini.remote.model.datamodel.ModelDto
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class DataRepository (val transactionDao: TransactionDao,val wishListDao: wishListDao,private val userApi:ApiService){
     private val userLiveData=MutableLiveData<ModelDto>()
@@ -19,19 +17,69 @@ class DataRepository (val transactionDao: TransactionDao,val wishListDao: wishLi
     val  user:LiveData<ModelDto>
     get()=userLiveData
 
+
     suspend fun getData(){
 
-        val result=userApi.getData("de3fcad6-161b-4dfc-9fa1-889c99422601")
+        val result=userApi.getData("305eacd5-692f-4356-9722-84c146d79a90")
         if (result?.body()!=null){
             userLiveData.postValue(result.body())
             Log.d("getdata","response")
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 fun CreateTransaction(transactionEntity: TransactionEntity){
+
     CoroutineScope(Dispatchers.IO).launch {
         transactionDao.register(transactionEntity)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     fun DeleteTransaction(transactionEntity: TransactionEntity){
         CoroutineScope(Dispatchers.IO).launch {
             transactionDao.deleteTransaction(transactionEntity)
