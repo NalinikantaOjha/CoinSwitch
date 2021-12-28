@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.masai.nalini.R
 import com.masai.nalini.local.WishListData
@@ -57,14 +58,18 @@ class BuyNowActivity2 : AppCompatActivity() {
         btnBuy.setOnClickListener {
             var amount1 = 0
             amount1 = etAmount.text.toString().toInt()
+            if (amount1>price/100){
+                val transactionEntity = TransactionEntity((amount1/(price /100)),amount1, name1, id, symbol2, price, change)
 
-            val transactionEntity = TransactionEntity(amount1, name1, id, symbol2, price, change)
 
+                viewModel2.CreateTransation(transactionEntity)
 
-            viewModel2.CreateTransation(transactionEntity)
+                val intent = Intent(this, FragmentActivity::class.java)
+                startActivity(intent)
+            }else {
+                Toast.makeText(applicationContext, "Minimum required price" + (price / 100).toString(),Toast.LENGTH_LONG).show()
 
-            val intent = Intent(this, FragmentActivity::class.java)
-            startActivity(intent)
+            }
         }
     }
 }

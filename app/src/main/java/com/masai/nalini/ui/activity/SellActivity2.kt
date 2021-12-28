@@ -53,6 +53,7 @@ class SellActivity2 : AppCompatActivity() {
         viewModel2= ViewModelProviders.of(this,wishlistFactory).get(MainViewModel::class.java)
 
         val intent=intent
+        val per=intent.getDoubleExtra("per",0.0)
         val name =intent.getStringExtra("name")
         val price=intent.getDoubleExtra("price",0.0)
         val change=intent.getDoubleExtra("change",0.0)
@@ -87,7 +88,7 @@ a++
         })
 
         btnSellNow.setOnClickListener {
-            val r =TransactionEntity(ammount1,name1,id,symbol2,price,change)
+            val r =TransactionEntity(per,ammount1,name1,id,symbol2,price,change)
             viewModel2.DeleteTransaction(r)
             val intent=Intent(this,FragmentActivity::class.java)
             startActivity(intent)

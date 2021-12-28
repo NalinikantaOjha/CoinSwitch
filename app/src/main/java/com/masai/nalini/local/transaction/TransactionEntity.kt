@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "transactionTable")
 data class TransactionEntity(
+    @ColumnInfo(name="per")var per:Double=0.0,
     @ColumnInfo(name="amount")var amount:Int=0,
     @ColumnInfo(name = "name")var name:String="",
     @PrimaryKey(autoGenerate = false)@ColumnInfo(name="id")var id:Int=0,

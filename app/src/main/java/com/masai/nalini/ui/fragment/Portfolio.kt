@@ -1,13 +1,14 @@
 package com.masai.nalini.ui.fragment
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.masai.nalini.R
@@ -25,16 +26,10 @@ import com.masai.nalini.ui.adapter.listner.OnClickAddToWatchList
 import com.masai.nalini.ui.adapter.listner.OnTransctionListner
 import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
-import kotlinx.android.synthetic.main.fragment_a_all.*
 import kotlinx.android.synthetic.main.fragment_portfolio.*
-import kotlinx.android.synthetic.main.item_layout.view.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import java.text.DecimalFormat
 import java.util.*
-import android.R.array
-import android.graphics.Color
-import okio.`-DeprecatedUtf8`.size
-import java.nio.file.Files.size
 
 
 class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
@@ -49,8 +44,7 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
     val dec = DecimalFormat("#.##")
     var investedValue: Int = 0
     var Worth: Double = 0.0
-    var profit: Double = 0.0
-   var a: Int = 0
+    var WorthInvested: Double = 0.0
 
     lateinit var adapter2: TransAdapter
     private var List = mutableListOf<TransactionEntity>()
@@ -70,6 +64,7 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
         return inflater.inflate(R.layout.fragment_portfolio, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     @InternalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -81,7 +76,7 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
         viewModel2 = ViewModelProviders.of(this, wishlistFactory).get(MainViewModel::class.java)
 
 
-        viewModel2.getAllTransaction().observe(viewLifecycleOwner, Observer {
+        viewModel2.getAllTransaction().observe(viewLifecycleOwner, {
             List.clear()
             List.addAll(it)
             setRecycle()
@@ -89,87 +84,70 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
             investedValue = 0
             data.forEach {
                 investedValue += it.amount
+                //Adding the id of currency in the table to list of Data
                 listofData.add(it.id)
             }
-
+//Finding total invested price
             data.forEach {
+                WorthInvested += ((it.price / 100) * it.per)
                 Worth += it.price
             }
-
-            viewModel2.dataLive().observe(
-                viewLifecycleOwner,
-                Observer {
-                    Log.d("getdata", "response")
-                    List2.clear()
-                    List2.addAll(it.data as MutableList<Data>)
-                    adapter.notifyDataSetChanged()
-                    var v: Double = 0.0
-                    Collections.sort(listofData);
-                    List2.sortByDescending {
-                        it.id
-                    }
-                    var e = 0
-                    while (e<listofData.size-1) {
-                        List2.forEach {
-                            if (it.id === listofData.get(e)){  v = v + it.quote.uSD.price
-                                e++
-                                }
-                        }
-                    }
-                    Log.d("nalinidata",listofData.size.toString())
-                    if (listofData.size>0){
+//Observing real time data and adding to List2
+            viewModel2.dataLive().observe(viewLifecycleOwner, {
+                Log.d("getdata", "response")
+                List2.clear()
+                List2.addAll(it.data as MutableList<Data>)
+                //Declaration of variable to add total realtime value of invested amount
+                var v = 0.0
+                // sorting the list that contains id of the table
+                Collections.sort(listofData)
+                List2.sortByDescending {
+                    it.id
+                }
+                //Adding the real price of the amount invested
+                var e = 0
+                while (e < listofData.size - 1) {
                     List2.forEach {
-
-                            if (it.id === listofData.get(listofData.size - 1)) {
-                                v = v + it.quote.uSD.price
-                            }
+                        if (it.id === listofData.get(e)) {
+                            val per = List[e].per
+                            v = v + ((it.quote.uSD.price / 100) * per)
+                            e++
                         }
-                    }
-                    val number = java.lang.Double.valueOf(Worth)
-                    val credits = dec.format(number)
-                    val number2 = java.lang.Double.valueOf(v)
-                    tvWORTH.setText("$ " + credits)
-                    tvInvestedValue.setText("$" + investedValue.toString())
-                    val profit=number2-number
-                    val credits2 = dec.format(profit)
-
-                    tvTotalGainAndLoss.setText(credits2.toString())
-                    if (profit>0){
-                        tvTotalGainAndLoss.setTextColor(Color.GREEN)
-
-                    }else{
-                        tvTotalGainAndLoss.setTextColor(Color.RED)
                     }
                 }
-            )
-            val number = java.lang.Double.valueOf(Worth)
-            val credits = dec.format(number)
-            tvWORTH.setText("$ " + credits)
-            tvInvestedValue.setText("$" + investedValue.toString())
-        })
+                // Adding the real value of last id in the table
+                if (listofData.size > 0) {
+                    List2.forEach {
+                        if (it.id === listofData.get(listofData.size - 1)) {
+                            val per = List[listofData.size - 1].per
+                            v = v + ((it.quote.uSD.price / 100) * per)
+                        }
+                    }
+                }
+//Total value invested
+                val number3 = java.lang.Double.valueOf(WorthInvested)
+                //The Total real time value of invested amount
+                val number2 = java.lang.Double.valueOf(v)
+                tvInvestedValue.setText("$$investedValue")
+                //Total profit and loss
+                val profit = number2 - number3
+                val credits2 = dec.format(profit)
+                tvTotalGainAndLoss.setText(credits2.toString())
+                //Set Colour for total gain and loss textView
+                if (profit >= 0) {
+                    tvTotalGainAndLoss.setTextColor(Color.GREEN)
 
-
-        Log.d("dataname",a.toString())
-
-
-        adapter = Adapter(List2, this, context as Activity)
-        viewModel2.dataLive().observe(viewLifecycleOwner, Observer {
-            Log.d("getdata", "response")
-            List2.clear()
-            List2.addAll(it.data as MutableList<Data>)
-            adapter.notifyDataSetChanged()
-
-
-        })
-        List.forEach {
-            var a = 0
-            if (it.id == listofData[a]) {
-
+                } else {
+                    tvTotalGainAndLoss.setTextColor(Color.RED)
+                }
+                //Set the total realtime value of invested amount
+                val credits5 = dec.format(number2)
+                tvWORTH.setText("$ " + credits5)
+                tvInvestedValue.setText("$" + investedValue.toString())
             }
-            a++
-        }
+            )
 
-
+        })
     }
 
     fun setRecycle() {
