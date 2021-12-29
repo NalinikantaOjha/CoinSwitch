@@ -40,6 +40,8 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
     lateinit var transactionDao: TransactionDao
     lateinit var adapter: Adapter
     private var List2 = mutableListOf<Data>()
+    private var changeprice= mutableListOf<Double>()
+    private var exp= mutableListOf<Data>()
 
     val dec = DecimalFormat("#.##")
     var investedValue: Int = 0
@@ -75,11 +77,12 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
         val wishlistFactory = ViewModelFactory(repository)
         viewModel2 = ViewModelProviders.of(this, wishlistFactory).get(MainViewModel::class.java)
 
-
+//Show data of tarasaction  in recycleView
         viewModel2.getAllTransaction().observe(viewLifecycleOwner, {
             List.clear()
             List.addAll(it)
             setRecycle()
+
             val data = it
             investedValue = 0
             data.forEach {
@@ -97,20 +100,24 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
                 Log.d("getdata", "response")
                 List2.clear()
                 List2.addAll(it.data as MutableList<Data>)
+                List2.sortByDescending {
+                    it.id
+                }
                 //Declaration of variable to add total realtime value of invested amount
                 var v = 0.0
                 // sorting the list that contains id of the table
                 Collections.sort(listofData)
-                List2.sortByDescending {
-                    it.id
-                }
+
                 //Adding the real price of the amount invested
                 var e = 0
                 while (e < listofData.size - 1) {
                     List2.forEach {
                         if (it.id === listofData.get(e)) {
                             val per = List[e].per
+                            changeprice.add((it.quote.uSD.price / 100) * per)
                             v = v + ((it.quote.uSD.price / 100) * per)
+                            Log.d("nalinidata2", List[e].changeprofit.toString() + List[e].name)
+
                             e++
                         }
                     }
@@ -118,12 +125,19 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
                 // Adding the real value of last id in the table
                 if (listofData.size > 0) {
                     List2.forEach {
+
                         if (it.id === listofData.get(listofData.size - 1)) {
                             val per = List[listofData.size - 1].per
+                            changeprice.add((it.quote.uSD.price / 100) * per)
                             v = v + ((it.quote.uSD.price / 100) * per)
+
                         }
+
                     }
+
+
                 }
+
 //Total value invested
                 val number3 = java.lang.Double.valueOf(WorthInvested)
                 //The Total real time value of invested amount
@@ -148,6 +162,9 @@ class Portfolio : Fragment(), OnTransctionListner, OnClickAddToWatchList {
             )
 
         })
+
+
+
     }
 
     fun setRecycle() {

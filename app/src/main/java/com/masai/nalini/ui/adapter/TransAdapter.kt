@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.masai.nalini.R
 import com.masai.nalini.local.WishlistEntity
 import com.masai.nalini.local.transaction.TransactionEntity
+import com.masai.nalini.remote.model.datamodel.Data
+import com.masai.nalini.remote.model.datamodel.ModelDto
 import com.masai.nalini.ui.adapter.listner.OnClickDeleteWishList
 import com.masai.nalini.ui.adapter.listner.OnTransctionListner
 

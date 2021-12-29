@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.masai.nalini.R
@@ -18,15 +17,11 @@ import com.masai.nalini.local.wishListDao
 import com.masai.nalini.remote.data.ApiCall
 import com.masai.nalini.remote.data.ApiService
 import com.masai.nalini.remote.data.Netwark
-import com.masai.nalini.remote.data.Network
-import com.masai.nalini.remote.model.datamodel.Data
 import com.masai.nalini.repository.DataRepository
-import com.masai.nalini.ui.adapter.Adapter
 import com.masai.nalini.ui.adapter.WishListAdapter
 import com.masai.nalini.ui.adapter.listner.OnClickDeleteWishList
 import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
-import kotlinx.android.synthetic.main.fragment_top_losers.*
 import kotlinx.android.synthetic.main.fragment_watchlist.*
 import kotlinx.coroutines.InternalCoroutinesApi
 

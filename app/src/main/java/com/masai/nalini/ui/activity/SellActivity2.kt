@@ -4,9 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.INotificationSideChannel
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.masai.nalini.R
@@ -88,7 +85,9 @@ a++
         })
 
         btnSellNow.setOnClickListener {
-            val r =TransactionEntity(per,ammount1,name1,id,symbol2,price,change)
+            val r =TransactionEntity(name1,id,symbol2,change,price,per,ammount1)
+
+          //  val r =TransactionEntity(per,ammount1,name1,id,symbol2,price,change)
             viewModel2.DeleteTransaction(r)
             val intent=Intent(this,FragmentActivity::class.java)
             startActivity(intent)

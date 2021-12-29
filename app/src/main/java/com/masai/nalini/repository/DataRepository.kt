@@ -27,57 +27,12 @@ class DataRepository (val transactionDao: TransactionDao,val wishListDao: wishLi
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 fun CreateTransaction(transactionEntity: TransactionEntity){
 
     CoroutineScope(Dispatchers.IO).launch {
         transactionDao.register(transactionEntity)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     fun DeleteTransaction(transactionEntity: TransactionEntity){
@@ -91,7 +46,7 @@ fun CreateTransaction(transactionEntity: TransactionEntity){
     }
     fun UpdateTransaction(transactionEntity: TransactionEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            transactionDao.deleteTransaction(transactionEntity)
+            transactionDao.updateTransaction(transactionEntity)
         }
     }
 

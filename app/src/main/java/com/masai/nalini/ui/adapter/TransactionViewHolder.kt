@@ -1,22 +1,40 @@
 package com.masai.nalini.ui.adapter
 
+import android.app.Activity
 import android.graphics.Color
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.masai.nalini.R
+import com.masai.nalini.local.WishListData
+import com.masai.nalini.local.transaction.TransactionDao
 import com.masai.nalini.local.transaction.TransactionEntity
+import com.masai.nalini.local.wishListDao
+import com.masai.nalini.remote.data.ApiService
+import com.masai.nalini.remote.data.Netwark
+import com.masai.nalini.remote.model.datamodel.Data
+import com.masai.nalini.remote.model.datamodel.ModelDto
+import com.masai.nalini.repository.DataRepository
 import com.masai.nalini.ui.adapter.listner.OnTransctionListner
+import com.masai.nalini.viewmodel.MainViewModel
+import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.item_layout.view.*
+import kotlinx.coroutines.InternalCoroutinesApi
 import java.text.DecimalFormat
 
 class TransactionViewHolder(itemView:View,val onTransctionListner: OnTransctionListner):RecyclerView.ViewHolder(itemView) {
+
     val dec = DecimalFormat("#.##")
+
+
+
     fun setDataTrans(tranas:TransactionEntity){
+
         itemView.apply {
             cardView.setOnClickListener {
                 onTransctionListner.OnTrans(tranas)
             }
+
             if(tranas.name.equals("Bitcoin")){
                 imageurl.setImageResource(R.drawable.bitcoin)
             }else if (tranas.name.equals("Ethereum")){

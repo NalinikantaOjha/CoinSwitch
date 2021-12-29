@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.masai.nalini.R
 import com.masai.nalini.local.WishListData
-import com.masai.nalini.local.WishlistEntity
 import com.masai.nalini.local.transaction.TransactionDao
 import com.masai.nalini.local.wishListDao
 import com.masai.nalini.remote.data.ApiService
@@ -25,7 +24,6 @@ import com.masai.nalini.ui.adapter.Adapter
 import com.masai.nalini.ui.adapter.listner.OnClickAddToWatchList
 import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
-import kotlinx.android.synthetic.main.fragment_top_gainers.*
 import kotlinx.android.synthetic.main.fragment_top_losers.*
 import kotlinx.coroutines.InternalCoroutinesApi
 

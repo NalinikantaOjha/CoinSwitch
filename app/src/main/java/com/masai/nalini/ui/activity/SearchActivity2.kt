@@ -1,6 +1,5 @@
 package com.masai.nalini.ui.activity
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,11 +21,9 @@ import com.masai.nalini.remote.model.datamodel.Data
 import com.masai.nalini.repository.DataRepository
 import com.masai.nalini.ui.adapter.Adapter
 import com.masai.nalini.ui.adapter.listner.OnClickAddToWatchList
-import com.masai.nalini.ui.fragment.Market
 import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_search2.*
-import kotlinx.android.synthetic.main.fragment_a_all.*
 import kotlinx.coroutines.InternalCoroutinesApi
 
 class SearchActivity2 : AppCompatActivity() ,OnClickAddToWatchList{

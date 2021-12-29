@@ -1,13 +1,9 @@
 package com.masai.nalini.ui.activity
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
-import android.icu.text.RelativeDateTimeFormatter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.masai.nalini.R
@@ -23,8 +19,6 @@ import com.masai.nalini.ui.adapter.Adapter
 import com.masai.nalini.viewmodel.MainViewModel
 import com.masai.nalini.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_currency_view.*
-import kotlinx.android.synthetic.main.activity_sell2.*
-import kotlinx.android.synthetic.main.item_layout.view.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import java.text.DecimalFormat
 

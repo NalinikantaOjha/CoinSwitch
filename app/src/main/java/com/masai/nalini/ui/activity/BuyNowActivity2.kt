@@ -59,7 +59,7 @@ class BuyNowActivity2 : AppCompatActivity() {
             var amount1 = 0
             amount1 = etAmount.text.toString().toInt()
             if (amount1>price/100){
-                val transactionEntity = TransactionEntity((amount1/(price /100)),amount1, name1, id, symbol2, price, change)
+                val transactionEntity = TransactionEntity( name1, id, symbol2,  change,price,(amount1/(price /100)),amount1,price)
 
 
                 viewModel2.CreateTransation(transactionEntity)
